@@ -1,6 +1,6 @@
 package com.betparx.stepDefinitions;
 
-import com.betparx.page.LoginBetParx;
+import com.betparx.page.LoginEtsyPage;
 import com.betparx.utilities.ConfigurationReader;
 import com.betparx.utilities.Driver;
 import io.cucumber.java.en.Given;
@@ -10,16 +10,14 @@ import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class loginPage {
+public class loginEtsyStepDef {
 
     WebDriver driver = Driver.getDriver();
+    LoginEtsyPage lgnPage = new LoginEtsyPage();
 
-    WebDriverWait wait;
+    @Given("user is on Etsy login page")
+    public void user_is_on_etsy_login_page() throws InterruptedException {
 
-    LoginBetParx lgnPage = new LoginBetParx();
-
-    @Given("user is on betParx login page")
-    public void user_is_on_bet_parx_login_page() throws InterruptedException {
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         Thread.sleep(1000);
         lgnPage.sign.click();
@@ -31,7 +29,7 @@ public class loginPage {
     @When("user enters username")
     public void user_enters_username() throws InterruptedException {
        lgnPage.userName.sendKeys(ConfigurationReader.getProperty("username"));
-
+       Thread.sleep(1000);
 
 
     }
