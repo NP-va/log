@@ -11,17 +11,19 @@ public class LoginBetParx {
 
     PageFactory.initElements(Driver.getDriver(), this);
 }
+    @FindBy (xpath= "//*[@id=\"gnav-header-inner\"]/div[4]/nav/ul/li[1]/button")
+    public WebElement sign;
 
-    @FindBy (xpath = "//button[.='Log In']")
-    public WebElement loginBtn;
-
-    @FindBy (id = "userName")
+    @FindBy (id = "join_neu_email_field")
     public WebElement userName;
 
-    @FindBy (id = "password")
+
+    @FindBy (id = "join_neu_password_field")
     public WebElement password;
 
-    @FindBy (xpath = "//button[@type='submit']")
-    public WebElement lgn;
+    @FindBy (xpath = "//button[@name='submit_attempt']")
+    public WebElement signIn;
+
+
 
 }
